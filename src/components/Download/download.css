@@ -1,0 +1,60 @@
+.download-section .wrapper{
+    background: white;
+    display: flex;
+    margin-top: 15px;
+    border-radius: 4px;
+    box-shadow: 0 2px 20px 7px rgba(0,0,0,.05);
+}
+
+.removed-animtion{
+    animation: removed 0.5s ease-in-out;
+}
+
+@keyframes removed{
+    from{
+        transform: translateY(0px);
+        display: block;
+    }
+    to{
+        transform: translateY(-200px);
+        display: none;
+    }
+}
+
+.download-section .title{
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--dark);
+    letter-spacing: 0.5px;
+}
+
+.download-section input{
+    margin: 5px 0px;
+    margin-left: 15px;
+    border: none;
+    width: 200px;
+    font-weight: 800;
+    font-size: 1.2rem;
+    text-align: center;
+    letter-spacing: 15px;
+    color: var(--dark);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.download-section input:focus{
+    outline: none;
+}
+
+.download-section .icon-wrapper{
+    background: var(--primary);
+    margin-left: 15px;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

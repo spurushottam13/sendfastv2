@@ -1,0 +1,9 @@
+.left-content-section{
+    flex: 1;
+}
+
+@media only screen and (max-width: 500px){
+    .left-content-section {
+        display: none;
+    }
+}

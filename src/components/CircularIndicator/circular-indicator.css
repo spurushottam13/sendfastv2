@@ -1,0 +1,21 @@
+
+.progress-ring__circle {
+    stroke-dasharray: 420.973, 420.973;
+    stroke-dashoffset: 420.973;
+    -webkit-transition: 0.35s stroke-dashoffset;
+    transition: 0.35s stroke-dashoffset;
+    -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+    -webkit-transform-origin: 50% 50%;
+            transform-origin: 50% 50%;
+  }
+  
+.progress-ring{
+}
+
+.progress-ring .label{
+    font-size: 1.8rem;
+    font-weight: 800;
+    transform: translate(2%, 2%);
+}
+

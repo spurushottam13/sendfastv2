@@ -1,0 +1,29 @@
+.main-section{
+    flex: 1 1;
+    max-width: 600px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 1rem;
+    position: relative;
+}
+
+.app-name{
+    position: absolute;
+    top: 1rem;
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: 0px;
+    background: var(--soft);
+    padding: 0 20px;
+    border-radius: 4px;
+    width: 80%;
+    right: 34%;
+    padding-left: 6rem;
+    box-shadow: 0 2px 20px 7px rgba(0,0,0,.05);
+}
+
+.chat-bubble{
+    background: var(--primary);
+}
