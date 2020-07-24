@@ -27,3 +27,25 @@
 .chat-bubble{
     background: var(--primary);
 }
+
+.t1{
+    text-align: center;
+    padding: 10px 20px;
+    background: #efeefc;
+    /* box-shadow: 20px 20px 60px #cbcad6, -20px -20px 60px #ffffff; */
+    border-radius: 10px;
+}
+
+.t2{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.t3{
+    font-size: 1.2rem;
+}
+
+@media only screen and (min-width: 500px){
+    .t1{
+        display: none;
+    }
+}

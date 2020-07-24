@@ -5,7 +5,7 @@ export default function Download({isMounted}){
         <div className={isMounted ? "download-section" : "download-section removed-animtion"}>
             <div className="title">Download Files</div>
             <div className="wrapper">
-                <input type="text" placeholder="XXX-XXX" />
+                <input type="number" placeholder="XXX-XXX" />
                 <div className="icon-wrapper">
                     <img src="download.svg" height="20px" alt="download"/>
                 </div>

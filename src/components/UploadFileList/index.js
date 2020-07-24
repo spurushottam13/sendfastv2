@@ -24,13 +24,21 @@ export default function UploadFileList({ fileBucket, startUploading }) {
                 }
             </div>
             <div className="full">
+            <div className="delete-after-wrapper">
+                <div>Delete after</div> 
+                <select>
+                    <option value="after24">24 hour</option>    
+                    <option value="onceDownload">downloaded</option>  
+                    <option value="1Week">1 week</option>    
+                </select>
+            </div>
                 <div className="terms-n-condition">
                     <input type="checkbox" />
                     <label>I agree terms & condition</label>
                 </div>
                 <div className="upload-btn" onClick={startUploading}>
                     Upload
-                     </div>
+                </div>
             </div>
         </Fragment>
     )

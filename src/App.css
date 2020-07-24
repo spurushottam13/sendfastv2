@@ -12,6 +12,17 @@
   transition: all 0.3s cubic-bezier(.25, .8, .25, 1)
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 
 .App {
   position: absolute;
@@ -22,6 +33,7 @@
   background: var(--background);
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
+  color: var(--dark);
 }
 
 .app-wrapper{

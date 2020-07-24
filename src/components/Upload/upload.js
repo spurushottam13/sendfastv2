@@ -1,5 +1,6 @@
 import firebase from 'firebase/app';
 import 'firebase/storage';
+import 'firebase/database';
 
 firebase.initializeApp({
     apiKey: "AIzaSyDZcpLH-ucE-YIM99Vz2r0ipyyixc1WEsY",
@@ -20,7 +21,8 @@ const FileUpload = (function () {
             currentIndex: 0
         },
         bytesTransferredArray: [],
-        bucket: [],
+        dowloadLinks:[],
+        fileNames: [],
         totalFiles: 0,
         totalFileSize: 0,
         upload: function (file, index) {
@@ -41,7 +43,10 @@ const FileUpload = (function () {
                     })
                     if (bytesTransferred === totalBytes) {
                         console.log("File Complete", file.name)
-                        resolve()
+                        this.storageRef.child(this.uid + '/' + file.name).getDownloadURL().then((url) => {
+                            this.dowloadLinks[index] = url
+                            resolve()
+                        })
                     }
                 })
             })
@@ -51,17 +56,31 @@ const FileUpload = (function () {
             this.uid = uid
             bucket.forEach(({ size, name }) => {
                 this.totalFileSize += size
+                this.fileNames.push(name)
             })
             this.totalFiles = bucket.length
             for (const index in bucket) {
                 await this.upload(bucket[index], index)
             }
+            await this.updateDB()
             if (typeof onSuccess === 'function') {
-                onSuccess()
+                onSuccess(this.dowloadLinks)
             } else {
                 console.error('Firebase Upload: onSuccess not provided')
             }
         },
+        updateDB: function(){
+            return new Promise((resolve, reject) => {
+                firebase.database().ref('UID/'+this.uid).set({
+                    fileNames: this.fileNames,
+                    downloadLinks: this.dowloadLinks,
+                    totalFiles: this.totalFiles,
+                    totalSize: this.totalFileSize
+                })
+                .then(resolve)
+                .catch(_ => console.error("Can not update DB", _))
+            })
+        },        
         convertBytes: (totalBytes) => {
             if (totalBytes < 1000000) {
                 return Math.floor(totalBytes / 1000) + 'KB';

@@ -12,6 +12,10 @@ export default function Main() {
             {
                 shouldRenderChild && (
                     <Fragment>
+                        <div className="t1">
+                            <div className="t2"><span>Simple</span> <span>Free</span> & <span>Easy</span></div>
+                            <div className="t3"> to share files online</div>
+                        </div>
                         <Download isMounted={isDownload} />
                     </Fragment>
                 )

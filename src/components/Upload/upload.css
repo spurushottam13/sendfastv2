@@ -59,7 +59,7 @@
     width: 100%;
     justify-content: flex-start;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 10px;
     font-size: 12px;
     margin-bottom: 10px;
 }
@@ -102,4 +102,30 @@
     width: 20px;
     margin-left: 10px;
     cursor: pointer;
+}
+
+.upload-section .delete-after-wrapper{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.upload-section select{
+    width: fit-content;
+    border: 1px solid #edecf9;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    color: var(--dark);
+    background: var(--background);
+}
+
+.upload-section select:focus{
+    outline: none;
+}
+
+.upload-section select option{
+    border-radius: 4px;
+    padding:0 30px 0 10px;
+    margin: 10px;
 }

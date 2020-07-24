@@ -26,7 +26,10 @@ export default function Upload({ setIsDownload }) {
          bucket: fileBucket,
          uid: uid,
          onProgress: data => setProgress(data),
-         onSuccess: _ => setIsUploaded(true) && setIsUploading(false)
+         onSuccess: downloadLinks => {
+            console.log(downloadLinks)
+            setIsUploaded(true) && setIsUploading(false)
+         }
       })
   }
 
@@ -82,61 +85,6 @@ export default function Upload({ setIsDownload }) {
                   </Fragment>
             )
          }
-         {/* {
-            fileBucket.length ? isUploading ? (
-               <Progress {...progress} />
-            ) :(
-               <Fragment>
-                  <div className="file-list">
-                     {
-                        fileBucket.map(file => (
-                           <div className="upload-stick-wrapper">
-                              <div className="inline">
-                                 <div>
-                                    {
-                                       file.name.length > 20
-                                          ? (file.name.substr(0, 20) + "..."
-                                          ) : (file.name)
-                                    }
-                                 </div>
-                              </div>
-                              <Icon.delete className="delete-icon" />
-                           </div>
-                        ))
-                     }
-                  </div>
-                  <div className="full">
-                     <div className="terms-n-condition">
-                        <input type="checkbox" />
-                        <label>I agree terms & condition</label>
-                     </div>
-                     <div className="upload-btn" onClick={startUploading}>
-                        Upload
-                        </div>
-                  </div>
-               </Fragment>
-            ) : (
-                  <Fragment>
-                     <div className="title">
-                        Share files with 6 digit code
-                            </div>
-                     <div className="share-btn" onClick={_ => fileInput.current.click()}>
-                        <input
-                           className="hidden"
-                           type="file"
-                           onChange={handleAdd}
-                           multiple
-                           ref={fileInput}
-                        />
-                        <img src="share.svg" alt="share"/>
-                                    SHARE
-                                </div>
-                     <div className="footer">
-                        No Signup, No Email
-                             </div>
-                  </Fragment>
-               )
-         } */}
       </div>
    )
 }
