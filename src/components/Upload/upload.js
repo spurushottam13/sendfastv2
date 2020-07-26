@@ -29,7 +29,7 @@ const FileUpload = (function () {
             return new Promise((resolve, reject) => {
                 console.log("Current filename: " + file.name)
                 const metadata = {
-                    contentDisposition: 'attachment',
+                    'Content-Disposition': 'attachment; filename='+file.name,
                 }
                 const uploadTask = this.storageRef.child(this.uid + '/' + file.name).put(file, metadata)
                 uploadTask.on('state_changed', ({ bytesTransferred, totalBytes }) => {
@@ -41,13 +41,12 @@ const FileUpload = (function () {
                         file: `${parseInt(index) + 1 }/${this.totalFiles}`,
                         name: file.name
                     })
-                    if (bytesTransferred === totalBytes) {
-                        console.log("File Complete", file.name)
-                        this.storageRef.child(this.uid + '/' + file.name).getDownloadURL().then((url) => {
-                            this.dowloadLinks[index] = url
-                            resolve()
-                        })
-                    }
+                },(error) => console.error(error) ,  () => {
+                    console.log("File Complete", file.name)
+                    uploadTask.snapshot.ref.getDownloadURL().then((url) => {
+                        this.dowloadLinks[index] = url
+                        resolve()
+                    })
                 })
             })
         },

@@ -1,18 +1,4 @@
-.upload-section{
-    background: white;
-    padding: 1rem;
-    width: 280px;
-    min-height: 250px;
-    max-height: 95%;
-    border-radius: 4px;
-    box-shadow: 0 2px 20px 7px rgba(0,0,0,.05);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.upload-section .title{
+.content-section .title{
     font-size: 18px;
     width: 100%;
     text-align: center;
@@ -20,7 +6,7 @@
     color: var(--dark);
 }
 
-.upload-section .share-btn{
+.content-section .share-btn{
     padding: 8px 10px;
     background: var(--primary);
     min-width: 120px;
@@ -33,28 +19,29 @@
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)
 }
 
-.upload-section .upload-btn:hover{
+.content-section .upload-btn:hover{
     background: var(--primary-dark);
 }
 
-.upload-section .share-btn img{
+.content-section .share-btn img{
     height: 18px;
     margin-left: 10px;
     margin-right: 10px;
     vertical-align: middle;
 }
 
-.upload-section .footer{
+.content-section .footer{
     font-size: 14px;
     color: var(--dark);
 }
 
-.upload-section .file-list{
+.content-section .file-list{
     width: 100%;
     overflow: auto;
+    margin-bottom: 20px;
 }
 
-.upload-section .terms-n-condition{
+.content-section .terms-n-condition{
     display: flex;
     width: 100%;
     justify-content: flex-start;
@@ -64,7 +51,7 @@
     margin-bottom: 10px;
 }
 
-.upload-section .upload-btn{
+.content-section .upload-btn{
     padding: 5px 10px;
     background: var(--primary);
     width: 100%;
@@ -76,7 +63,7 @@
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
-.upload-section .full{
+.content-section .full{
     width: 100%;
 }
 
@@ -104,13 +91,12 @@
     cursor: pointer;
 }
 
-.upload-section .delete-after-wrapper{
+.content-section .delete-after-wrapper{
     display: flex;
     justify-content: space-between;
-    margin-top: 20px;
 }
 
-.upload-section select{
+.content-section select{
     width: fit-content;
     border: 1px solid #edecf9;
     border-radius: 4px;
@@ -120,11 +106,11 @@
     background: var(--background);
 }
 
-.upload-section select:focus{
+.content-section select:focus{
     outline: none;
 }
 
-.upload-section select option{
+.content-section select option{
     border-radius: 4px;
     padding:0 30px 0 10px;
     margin: 10px;

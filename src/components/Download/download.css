@@ -2,8 +2,16 @@
     background: white;
     display: flex;
     margin-top: 15px;
+    color: white;
     border-radius: 4px;
     box-shadow: 0 2px 20px 7px rgba(0,0,0,.05);
+}
+
+.download-section .is-fetching-wrapper{
+    height: 50px;
+    width: 280px;
+    padding-right: 50px;
+    position: relative;
 }
 
 .removed-animtion{
@@ -57,4 +65,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.download-section .is-fetching{
+    position: absolute;
+    right: 0;
+    width: 100%;
+    border-radius: 4px;
+    justify-content: space-between;
+    color: white;
+    padding: 0 13.5px;
 }

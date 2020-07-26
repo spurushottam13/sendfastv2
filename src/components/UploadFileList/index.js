@@ -1,8 +1,9 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useState } from 'react'
 
 import Icon from '../../Icons'
 
 export default function UploadFileList({ fileBucket, startUploading }) {
+    const [tnc, setTnc] = useState(true)
     return (
         <Fragment>
             <div className="file-list">
@@ -33,10 +34,10 @@ export default function UploadFileList({ fileBucket, startUploading }) {
                 </select>
             </div>
                 <div className="terms-n-condition">
-                    <input type="checkbox" />
+                    <input type="checkbox" checked={tnc} onChange={({target: {checked}}) => setTnc(checked)} />
                     <label>I agree terms & condition</label>
                 </div>
-                <div className="upload-btn" onClick={startUploading}>
+                <div className={tnc ? "upload-btn" : "upload-btn disable" } onClick={e => tnc && startUploading(e)}>
                     Upload
                 </div>
             </div>

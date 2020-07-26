@@ -13,7 +13,6 @@ export default function Upload({ setIsDownload }) {
    const [uid] = useState(Math.floor(100000 + Math.random() * 900000))
    const [currentComponent, setCurrentComponent] = useState('DEFAULT')
    const fileInput = useRef()
-   const uploadRef = useRef()
 
    const handleAdd = ({ target: { files } }) => {
       setIsDownload(false)
@@ -31,60 +30,36 @@ export default function Upload({ setIsDownload }) {
             setIsUploaded(true) && setIsUploading(false)
          }
       })
-  }
+   }
 
-//   useEffect(() => {
-//    if(currentComponent === 'FILE_LIST'){
-//       uploadRef.current.style.height = uploadRef.current.offsetHeight > 300 ? uploadRef.current.offsetHeight + "px" : '300px'
-//    }else{
-//       uploadRef.current.style.height = ""
-//    }
-//   },[currentComponent])
+   useEffect(() => {
+      if (fileBucket.length && isUploading) setCurrentComponent('PROGRESS')
+      if (fileBucket.length && !isUploading) setCurrentComponent('FILE_LIST')
+      if (fileBucket.length && isUploaded) setCurrentComponent('DISPLAY_CODE')
+   }, [fileBucket, isUploading, isUploaded])
 
-  useEffect(() => {
-     if(fileBucket.length && isUploading) setCurrentComponent('PROGRESS')
-     if(fileBucket.length && !isUploading) setCurrentComponent('FILE_LIST')
-     if(fileBucket.length && isUploaded) setCurrentComponent('DISPLAY_CODE')
-  },[fileBucket, isUploading, isUploaded])
-
+   if (currentComponent === 'PROGRESS') return (<Progress {...progress} />)
+   if (currentComponent === 'FILE_LIST') return (<UploadFileList fileBucket={fileBucket} startUploading={startUploading} />)
+   if (currentComponent === 'DISPLAY_CODE') return (<CodeDisplay uid={uid} />)
    return (
-      <div className="upload-section" ref={uploadRef}>
-         {
-            currentComponent === 'PROGRESS' && (<Progress {...progress} />)
-         }
-         {
-            currentComponent === 'FILE_LIST' && (
-               <UploadFileList fileBucket={fileBucket} startUploading={startUploading} />
-            )
-         }
-         {
-            currentComponent === 'DISPLAY_CODE' && (
-               <CodeDisplay uid={uid} />
-            )
-         }
-         {
-            currentComponent === 'DEFAULT' && (
-               <Fragment>
-                     <div className="title">
-                        Share files with 6 digit code
-                            </div>
-                     <div className="share-btn" onClick={_ => fileInput.current.click()}>
-                        <input
-                           className="hidden"
-                           type="file"
-                           onChange={handleAdd}
-                           multiple
-                           ref={fileInput}
-                        />
-                        <img src="share.svg" alt="share"/>
-                                    SHARE
-                                </div>
-                     <div className="footer">
-                        No Signup, No Email
-                             </div>
-                  </Fragment>
-            )
-         }
-      </div>
+      <Fragment>
+         <div className="title">
+            Share files with 6 digit code
+         </div>
+         <div className="share-btn" onClick={_ => fileInput.current.click()}>
+            <input
+               className="hidden"
+               type="file"
+               onChange={handleAdd}
+               multiple
+               ref={fileInput}
+            />
+            <img src="share.svg" alt="share" />
+            SHARE
+         </div>
+         <div className="footer">
+            No Signup, No Email
+         </div>
+      </Fragment>
    )
 }

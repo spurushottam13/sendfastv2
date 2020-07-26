@@ -76,3 +76,12 @@ input[type=number] {
 .mb-5{
   margin-bottom: 5px;
 }
+
+.mb10{
+  margin-bottom: 10px;
+}
+
+.disable{
+  background: #c2c2c2 !important;
+  cursor: no-drop !important;
+}
