@@ -5,7 +5,7 @@ export default function LeftContent() {
         <div className="left-content-section">
             <div>
                 <div className="hello-wrapper">
-                    Hello <span className="hello-emoji">👋 </span>
+                    Hello <span className="hello-emoji" role="img" aria-label="hello">👋 </span>
                 </div>
                 <div className="comment">
                     it's <span className="attribute">Simple</span>, <span className="attribute">Free</span> and <span className="attribute">Easy</span> to share files

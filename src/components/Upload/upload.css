@@ -96,6 +96,11 @@
     justify-content: space-between;
 }
 
+.content-section .limit-warn{
+    margin-top: 10px;
+    color: var(--error);
+}
+
 .content-section select{
     width: fit-content;
     border: 1px solid #edecf9;

@@ -4,6 +4,7 @@ import FileUpload from './upload'
 import Progress from '../Progress'
 import UploadFileList from '../UploadFileList'
 import CodeDisplay from '../CodeDisplay'
+import { convertBytes } from '../../utils'
 
 export default function Upload({ setIsDownload }) {
    const [fileBucket, updateFileBucket] = useState([])
@@ -13,23 +14,40 @@ export default function Upload({ setIsDownload }) {
    const [uid] = useState(Math.floor(100000 + Math.random() * 900000))
    const [currentComponent, setCurrentComponent] = useState('DEFAULT')
    const fileInput = useRef()
+   const [isLimitExceed, setLimitExceed] = useState(false)
 
    const handleAdd = ({ target: { files } }) => {
       setIsDownload(false)
       files = Array.from(files)
       updateFileBucket(files)
    }
-   const startUploading = () => {
+
+   useEffect(() => {
+      const LIMIT = 1073741824 // 1GB
+      let totalFileSize = 0
+      fileBucket.forEach(({size}) => totalFileSize += size)
+      if(totalFileSize > LIMIT){
+         setLimitExceed(convertBytes(totalFileSize - LIMIT))
+      }
+   },[fileBucket])
+
+   const startUploading = (expiryCode) => {
       setIsUploading(true)
       FileUpload.start({
-         bucket: fileBucket,
          uid: uid,
+         expiryCode,
+         bucket: fileBucket,
          onProgress: data => setProgress(data),
          onSuccess: downloadLinks => {
-            console.log(downloadLinks)
             setIsUploaded(true) && setIsUploading(false)
          }
       })
+   }
+
+   const deleteFile = (index) => {
+      const temp = [...fileBucket]
+      temp.splice(index,1)
+      updateFileBucket(temp)
    }
 
    useEffect(() => {
@@ -39,7 +57,7 @@ export default function Upload({ setIsDownload }) {
    }, [fileBucket, isUploading, isUploaded])
 
    if (currentComponent === 'PROGRESS') return (<Progress {...progress} />)
-   if (currentComponent === 'FILE_LIST') return (<UploadFileList fileBucket={fileBucket} startUploading={startUploading} />)
+   if (currentComponent === 'FILE_LIST') return (<UploadFileList fileBucket={fileBucket} isLimitExceed={isLimitExceed} deleteFile={deleteFile} startUploading={startUploading} />)
    if (currentComponent === 'DISPLAY_CODE') return (<CodeDisplay uid={uid} />)
    return (
       <Fragment>

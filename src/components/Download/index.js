@@ -8,7 +8,6 @@ export default function Download({isMounted, setFileBucket, setIsDownload}){
     const [shareID, setShareID] = useState("")
 
     const handleInput = ({target: {value}}) => {
-        console.log(value)
         if(String(value).length <= 6) {
             setShareID(value)
         }
@@ -19,7 +18,6 @@ export default function Download({isMounted, setFileBucket, setIsDownload}){
         firebase.database().ref('UID/' + shareID).once('value',function(snapshot){
             setFileBucket(snapshot.val())
             setIsDownload(false)
-            console.log(snapshot.val())
         })
     }
     return(

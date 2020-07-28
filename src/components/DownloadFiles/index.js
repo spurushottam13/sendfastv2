@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react'
+import React from 'react'
 import Icon from '../../Icons'
 import './download-files.css'
 import { convertBytes } from '../../utils'

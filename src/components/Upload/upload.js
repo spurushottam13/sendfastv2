@@ -50,9 +50,10 @@ const FileUpload = (function () {
                 })
             })
         },
-        start: async function ({ bucket, onProgress, uid, onSuccess }) {
+        start: async function ({ bucket, onProgress, uid, expiryCode, onSuccess }) {
             this.onProgress = onProgress
             this.uid = uid
+            this.expiryCode = expiryCode
             bucket.forEach(({ size, name }) => {
                 this.totalFileSize += size
                 this.fileNames.push(name)
@@ -74,7 +75,9 @@ const FileUpload = (function () {
                     fileNames: this.fileNames,
                     downloadLinks: this.dowloadLinks,
                     totalFiles: this.totalFiles,
-                    totalSize: this.totalFileSize
+                    totalSize: this.totalFileSize,
+                    expiryCode: this.expiryCode,
+                    uploadTime: new Date().getTime()
                 })
                 .then(resolve)
                 .catch(_ => console.error("Can not update DB", _))

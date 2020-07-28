@@ -3,7 +3,6 @@ import './main.css'
 import Download from '../Download'
 import Upload from '../Upload'
 import useDelayUnmount from '../../Hooks/useDelayUnmount'
-import CircularIndicator from '../CircularIndicator'
 import DownloadFiles from '../DownloadFiles'
 export default function Main() {
     const [isDownload, setIsDownload] = useState(true)
