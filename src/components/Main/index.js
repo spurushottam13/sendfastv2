@@ -14,8 +14,8 @@ export default function Main() {
                 shouldRenderChild && (
                     <Fragment>
                         <div className="t1">
-                            <div className="t2"><span>Simple</span> <span>Free</span> & <span>Easy</span></div>
-                            <div className="t3"> to share files online</div>
+                            <div className="t2">Now, share your files easily with just 6 digit code</div>
+                            <div className="t3">No SignUp   No Email   No Phone Number</div>
                         </div>
                         <Download setIsDownload={setIsDownload} setFileBucket={setFileBucket} isMounted={isDownload} />
                     </Fragment>

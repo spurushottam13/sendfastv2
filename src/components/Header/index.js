@@ -6,6 +6,9 @@ export default function Header(){
             <div className="logo-title">
             <span>File</span><span>bucket.com</span>
             </div>
+            <div className="about">
+                About
+            </div>
         </div>
     )
 }
