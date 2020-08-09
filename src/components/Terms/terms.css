@@ -1,0 +1,22 @@
+.terms-wrapper{
+   background: white
+}
+
+.terms-wrapper .heading{
+   margin: -20px;
+   padding: 10px;
+   background: var(--background);
+   margin-bottom: 20px;
+   border-radius: 4px 4px 0px 0px;
+   display: flex;
+   justify-content: space-between;
+   font-weight: bold;
+}
+
+.terms-wrapper li{
+   margin-bottom: 10px;
+}
+
+.terms-wrapper li li{
+   margin-bottom: auto;
+}

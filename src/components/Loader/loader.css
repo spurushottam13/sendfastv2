@@ -1,0 +1,14 @@
+.component-loader {
+   border: 3px solid #f3f3f3; /* Light grey */
+   border-top: 3px solid var(--primary); /* Blue */
+   border-radius: 50%;
+   width: 30px;
+   height: 30px;
+   margin-right: 10px;
+   animation: component-spin 1s linear infinite;
+ }
+ 
+ @keyframes component-spin {
+   0% { transform: rotate(0deg); }
+   100% { transform: rotate(360deg); }
+ }

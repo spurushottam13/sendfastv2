@@ -59,6 +59,7 @@ export default function Upload({ setIsDownload }) {
    if (currentComponent === 'PROGRESS') return (<Progress {...progress} />)
    if (currentComponent === 'FILE_LIST') return (<UploadFileList fileBucket={fileBucket} isLimitExceed={isLimitExceed} deleteFile={deleteFile} startUploading={startUploading} />)
    if (currentComponent === 'DISPLAY_CODE') return (<CodeDisplay uid={uid} />)
+
    return (
       <Fragment>
          <div className="title">
