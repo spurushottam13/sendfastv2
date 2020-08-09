@@ -39,7 +39,7 @@ export default function Download({isMounted, setFileBucket, setIsDownload}){
 
     const iconHandler = (event) => {
         if(isError) return reset(event)
-        if(!isFetching) return handleFetch(event)
+        if(!isFetching && shareID) return handleFetch(event)
     }
 
     return(
