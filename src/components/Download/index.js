@@ -1,24 +1,15 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import './download.css'
 import firebase from 'firebase/app';
 import 'firebase/database';
 import Icon from '../../Icons';
 import Loader from '../Loader';
-import { getUrlParameter } from '../../utils';
+import { getUrlParameter, useMountEffect } from '../../utils';
 
 export default function Download({isMounted, setFileBucket, setIsDownload}){
     const [isFetching, setIsFetching] = useState(false)
     const [shareID, setShareID] = useState("")
     const [isError, setIsError] = useState(false)
-
-    useEffect(() => {
-        const sid = getUrlParameter('sid')
-        console.log(sid)
-        if(sid && sid.length === 6){
-            setShareID(sid, handleFetch)
-           // handleFetch()
-        }
-    },[])
 
     const handleInput = ({target: {value}}) => {
         if(String(value).length <= 6) {
@@ -32,13 +23,11 @@ export default function Download({isMounted, setFileBucket, setIsDownload}){
         setIsError(false)
     }
 
-    const handleFetch = (event) => {
-        if(event) event.stopPropagation()
+    const handleFetch = (shareID) => {
         setIsFetching(true)
         setIsError(false)
         firebase.database().ref('UID/' + shareID).once('value',function(snapshot){
             const response = snapshot.val()
-            console.log(response)
             if(response){
                 setFileBucket({...response, ...{shareID: shareID}})
                 setIsDownload(false)
@@ -48,9 +37,20 @@ export default function Download({isMounted, setFileBucket, setIsDownload}){
         })
     }
 
+    useMountEffect(() => {
+        const sid = getUrlParameter('sid')
+        if(sid && sid.length === 6){
+           setShareID(sid)
+           handleFetch(sid)
+        }
+    })
+
     const iconHandler = (event) => {
         if(isError) return reset(event)
-        if(!isFetching && shareID) return handleFetch(event)
+        if(!isFetching && shareID){
+            if(event) event.stopPropagation()
+            return handleFetch(shareID)
+        }
     }
 
     return(

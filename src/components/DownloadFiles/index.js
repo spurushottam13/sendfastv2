@@ -25,7 +25,7 @@ export default function DownloadFiles({ downloadLinks, fileNames, totalFiles, sh
                 <div className="file-list">
                     {
                         fileNames.map((name, index) => (
-                            <div className="upload-stick-wrapper">
+                            <div key={shareID+index} className="upload-stick-wrapper">
                                 <div className="inline">
                                     <div>
                                         {
