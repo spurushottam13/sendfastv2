@@ -42,7 +42,7 @@ export default function UploadFileList({ fileBucket, isLimitExceed, startUploadi
                 {
                     isLimitExceed && (
                         <div className="limit-warn">
-                            File limit exceeded, please {isLimitExceed} of files
+                            File limit exceeded, please remove {isLimitExceed} of files
                         </div>
                     )
                 }

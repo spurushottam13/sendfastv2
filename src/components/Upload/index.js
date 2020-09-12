@@ -28,6 +28,8 @@ export default function Upload({ setIsDownload }) {
       fileBucket.forEach(({size}) => totalFileSize += size)
       if(totalFileSize > LIMIT){
          setLimitExceed(convertBytes(totalFileSize - LIMIT))
+      }else{
+         setLimitExceed(false)
       }
    },[fileBucket])
 

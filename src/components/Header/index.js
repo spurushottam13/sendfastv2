@@ -4,7 +4,7 @@ export default function Header(){
     return(
         <div className="header-section">
             <div className="logo-title">
-            <span>File</span><span>bucket.com</span>
+            <span>SendFileOnline.com</span>
             </div>
             <div className="about">
                 About
