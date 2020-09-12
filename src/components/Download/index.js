@@ -1,14 +1,24 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './download.css'
 import firebase from 'firebase/app';
 import 'firebase/database';
 import Icon from '../../Icons';
 import Loader from '../Loader';
+import { getUrlParameter } from '../../utils';
 
 export default function Download({isMounted, setFileBucket, setIsDownload}){
     const [isFetching, setIsFetching] = useState(false)
     const [shareID, setShareID] = useState("")
     const [isError, setIsError] = useState(false)
+
+    useEffect(() => {
+        const sid = getUrlParameter('sid')
+        console.log(sid)
+        if(sid && sid.length === 6){
+            setShareID(sid, handleFetch)
+           // handleFetch()
+        }
+    },[])
 
     const handleInput = ({target: {value}}) => {
         if(String(value).length <= 6) {
@@ -23,11 +33,12 @@ export default function Download({isMounted, setFileBucket, setIsDownload}){
     }
 
     const handleFetch = (event) => {
-        event.stopPropagation()
+        if(event) event.stopPropagation()
         setIsFetching(true)
         setIsError(false)
         firebase.database().ref('UID/' + shareID).once('value',function(snapshot){
             const response = snapshot.val()
+            console.log(response)
             if(response){
                 setFileBucket({...response, ...{shareID: shareID}})
                 setIsDownload(false)

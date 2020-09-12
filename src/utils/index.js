@@ -15,3 +15,5 @@ export const copyToClipboard = (text) => {
     document.body.removeChild(input);
     return result;
  }
+
+export const getUrlParameter = (query) => new URL(window.location.href).searchParams.get(query)
