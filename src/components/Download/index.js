@@ -12,6 +12,7 @@ export default function Download({isMounted, setFileBucket, setIsDownload}){
     const [isError, setIsError] = useState(false)
 
     const handleInput = ({target: {value}}) => {
+        value = String(value).replace(/-/g,"").replace(/ /g,"")
         if(String(value).length <= 6) {
             setShareID(value)
         }
@@ -59,7 +60,7 @@ export default function Download({isMounted, setFileBucket, setIsDownload}){
             <div className={
                         isFetching ? "wrapper is-fetching-wrapper" : "wrapper" 
                     }>
-                <input type="number" value={shareID} onChange={handleInput} placeholder="XXX-XXX" />
+                <input type="text" inputMode="numeric" value={shareID} onChange={handleInput} placeholder="XXX-XXX" />
                 <div 
                     className={
                         isFetching ? (isError ? "icon-wrapper is-fetching inavalid" : "icon-wrapper is-fetching") : "icon-wrapper" 

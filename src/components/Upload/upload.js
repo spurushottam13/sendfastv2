@@ -1,18 +1,11 @@
 import firebase from 'firebase/app';
 import 'firebase/storage';
 import 'firebase/database';
+import 'firebase/auth'
+import { sleep } from '../../utils';
+import { User } from '../../User';
 
-firebase.initializeApp({
-    apiKey: "AIzaSyDZcpLH-ucE-YIM99Vz2r0ipyyixc1WEsY",
-    authDomain: "send-fast-v2.firebaseapp.com",
-    databaseURL: "https://send-fast-v2.firebaseio.com",
-    projectId: "send-fast-v2",
-    storageBucket: "send-fast-v2.appspot.com",
-    messagingSenderId: "100946162990",
-    appId: "1:100946162990:web:07c78dc64b10f73a95f6bf"
-});
-
-const FileUpload = (function () {
+const FileUpload = (function () {  
     return {
         storageRef: firebase.storage().ref(),
         progress: {
@@ -27,7 +20,6 @@ const FileUpload = (function () {
         totalFileSize: 0,
         upload: function (file, index) {
             return new Promise((resolve, reject) => {
-                console.log("Current filename: " + file.name)
                 const metadata = {
                     'Content-Disposition': 'attachment; filename='+file.name,
                 }
@@ -42,7 +34,6 @@ const FileUpload = (function () {
                         name: file.name
                     })
                 },(error) => console.error(error) ,  () => {
-                    console.log("File Complete", file.name)
                     uploadTask.snapshot.ref.getDownloadURL().then((url) => {
                         this.dowloadLinks[index] = url
                         resolve()
@@ -59,6 +50,10 @@ const FileUpload = (function () {
                 this.fileNames.push(name)
             })
             this.totalFiles = bucket.length
+            if(!User.auth){
+                await sleep(5000)
+                if(!User.auth) throw new Error("[Auth]: user not logged-in")
+            }
             for (const index in bucket) {
                 await this.upload(bucket[index], index)
             }
@@ -92,5 +87,4 @@ const FileUpload = (function () {
         }
     }
 })()
-
 export default FileUpload

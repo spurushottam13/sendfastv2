@@ -4,7 +4,9 @@ import LeftContent from './components/LeftContent';
 import Main from './components/Main';
 import Header from './components/Header';
 import Wave from './components/wave';
+import { User } from './User';
 
+User.login()
 
 
 

@@ -5,13 +5,13 @@ import Progress from '../Progress'
 import UploadFileList from '../UploadFileList'
 import CodeDisplay from '../CodeDisplay'
 import { convertBytes } from '../../utils'
+import { User } from '../../User'
 
 export default function Upload({ setIsDownload }) {
    const [fileBucket, updateFileBucket] = useState([])
    const [isUploading, setIsUploading] = useState(false)
    const [isUploaded, setIsUploaded] = useState(false)
    const [progress, setProgress] = useState(0)
-   const [uid] = useState(Math.floor(100000 + Math.random() * 900000))
    const [currentComponent, setCurrentComponent] = useState('DEFAULT')
    const fileInput = useRef()
    const [isLimitExceed, setLimitExceed] = useState(false)
@@ -36,7 +36,7 @@ export default function Upload({ setIsDownload }) {
    const startUploading = (expiryCode) => {
       setIsUploading(true)
       FileUpload.start({
-         uid: uid,
+         uid: User.uid,
          expiryCode,
          bucket: fileBucket,
          onProgress: data => setProgress(data),
@@ -60,7 +60,7 @@ export default function Upload({ setIsDownload }) {
 
    if (currentComponent === 'PROGRESS') return (<Progress {...progress} />)
    if (currentComponent === 'FILE_LIST') return (<UploadFileList fileBucket={fileBucket} isLimitExceed={isLimitExceed} deleteFile={deleteFile} startUploading={startUploading} />)
-   if (currentComponent === 'DISPLAY_CODE') return (<CodeDisplay uid={uid} />)
+   if (currentComponent === 'DISPLAY_CODE') return (<CodeDisplay uid={User.uid} />)
 
    return (
       <Fragment>

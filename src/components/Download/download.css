@@ -50,6 +50,7 @@
     letter-spacing: 15px;
     color: var(--dark);
     font-family: 'Montserrat', sans-serif;
+    padding-left: 7.5px;
 }
 
 .download-section input:focus{
