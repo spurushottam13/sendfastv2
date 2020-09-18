@@ -12,7 +12,7 @@ export function UploadTerms({ closeModal }) {
             <li>We collect <strong>NO Personal data</strong> of yours, we only store two anayltic data.
                <ul>
                   <li>Number of time user visted</li>
-                  <li>source info from which user visited</li>
+                  <li>source info from which/where (IP location) user visited</li>
                </ul>
             </li>
             <li>We <strong>NEVER</strong> go through your files/data, so we <strong>Don't Scan</strong> also, therefore download only if you trust the sharing user. </li>

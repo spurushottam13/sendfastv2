@@ -1,7 +1,7 @@
 import firebase from "firebase/app";
 import "firebase/database";
 import "firebase/auth";
-import { getFingerprintId } from "../utils";
+import { getFingerprintId, getIPLocation } from "../utils";
 
 firebase.initializeApp({
   apiKey: "AIzaSyDZcpLH-ucE-YIM99Vz2r0ipyyixc1WEsY",
@@ -32,7 +32,12 @@ export const User = (function () {
             ...this.info,
           };
           this.auth = true;
-          this.updateAnalytic();
+          getIPLocation()
+          .then(data => {
+            this.info['ip-location'] = data
+            this.updateAnalytic();
+          })
+          .catch(this.updateAnalytic)
         } else {
           this.auth = false;
         }
