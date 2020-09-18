@@ -27,7 +27,7 @@ export default function CodeDisplay({ uid = 235874 }) {
                 <div className="mb-5">Direct download link</div>
                 <div className="code-display-code-wrapper">
                     <div className="code-display-code code-display-link" ref={linkRef}>
-                        https://filebucket.com?sid={uid}
+                        https://sendfileonline.com/?sid={uid}
                     </div>
                     <div className="code-display-copy-icon-wrapper" onClick={_ => copyToClipboard(linkRef.current.innerText)}>
                         <img src="./copy.svg" height="18px" alt="copy" />
