@@ -16,7 +16,7 @@ export default function UploadFileList({ fileBucket, isLimitExceed, startUploadi
                 {
                     fileBucket.map((file, index) => (
                         <div className="upload-stick-wrapper" key={file.name + index}>
-                            <div className="inline">
+                            <div className="inline icon-width-limit">
                                 <div>
                                     {
                                         file.name.length > 20

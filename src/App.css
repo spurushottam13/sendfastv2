@@ -94,3 +94,8 @@ input[type=number] {
 .text-primary{
   color: var(--primary);
 }
+
+.icon-width-limit{
+  max-width: calc(100% - 50px);
+  overflow: unset;
+}

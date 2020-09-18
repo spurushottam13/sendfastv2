@@ -17,6 +17,12 @@ export const User = (function () {
   return {
     auth: false,
     uid: Math.floor(100000 + Math.random() * 900000),
+    callbacks: [],
+    onLogin: function(callback){
+      if(typeof callback === 'function'){
+        this.callbacks.push(callback)
+      }
+    },
     info: {
       href: window.location.href,
       fpid: getFingerprintId(),
@@ -32,6 +38,7 @@ export const User = (function () {
             ...this.info,
           };
           this.auth = true;
+          this.callbacks.forEach(callback => callback(this))
           getIPLocation()
           .then(data => {
             this.info['ip-location'] = data
@@ -51,3 +58,10 @@ export const User = (function () {
     },
   };
 })();
+
+// @type debug: Global variable export
+if(window['SFO']){
+  window['SFO']['user'] = User
+}else{
+  window['SFO'] = {user: User}
+}

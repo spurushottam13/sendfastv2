@@ -5,6 +5,7 @@ import 'firebase/database';
 import Icon from '../../Icons';
 import Loader from '../Loader';
 import { getUrlParameter, useMountEffect } from '../../utils';
+import { User } from '../../User';
 
 export default function Download({isMounted, setFileBucket, setIsDownload}){
     const [isFetching, setIsFetching] = useState(false)
@@ -42,7 +43,14 @@ export default function Download({isMounted, setFileBucket, setIsDownload}){
         const sid = getUrlParameter('sid')
         if(sid && sid.length === 6){
            setShareID(sid)
-           handleFetch(sid)
+           if(User.auth){
+              handleFetch(sid)
+           }else{
+               User.onLogin(_ => {
+                   console.log("Useing Callback",_)
+                   handleFetch(sid)
+               })
+           }
         }
     })
 

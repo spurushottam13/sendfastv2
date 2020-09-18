@@ -26,7 +26,7 @@ export default function DownloadFiles({ downloadLinks, fileNames, totalFiles, sh
                     {
                         fileNames.map((name, index) => (
                             <div key={shareID+index} className="upload-stick-wrapper">
-                                <div className="inline">
+                                <div className="inline icon-width-limit">
                                     <div>
                                         {
                                             name.length > 20

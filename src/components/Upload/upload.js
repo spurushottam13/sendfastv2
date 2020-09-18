@@ -21,7 +21,7 @@ const FileUpload = (function () {
         upload: function (file, index) {
             return new Promise((resolve, reject) => {
                 const metadata = {
-                    'Content-Disposition': 'attachment; filename='+file.name,
+                    contentDisposition: `attachment; filename="${file.name}"`,
                 }
                 const uploadTask = this.storageRef.child(this.uid + '/' + file.name).put(file, metadata)
                 uploadTask.on('state_changed', ({ bytesTransferred, totalBytes }) => {
@@ -88,3 +88,10 @@ const FileUpload = (function () {
     }
 })()
 export default FileUpload
+
+// @type debug: Global variable export
+if(window['SFO']){
+    window['SFO']['fileUpload'] = FileUpload
+}else{
+    window['SFO'] = {fileUpload: FileUpload}
+}
