@@ -54,3 +54,15 @@ export const getIPLocation = () =>
         resolve({ coords: "NA", country: "NA" })
       );
   });
+
+export const generateExpiryTime = (expiryCode) =>{
+  if(expiryCode === 'after24'){
+    return new Date().getTime() + 86400000
+  }
+  if(expiryCode === '1Week'){
+    return new Date().getTime() + 604800000
+  }
+  if(expiryCode === 'onceDownload'){
+    return 'ON_DOWNLOAD'
+  }
+}
