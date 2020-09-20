@@ -11,10 +11,11 @@ User.login()
 
 
 function App() {
+  const wrapperHeight = window.innerHeight - 80
   return (
     <div className="App">
       <Header/>
-      <div className="app-wrapper">
+      <div className="app-wrapper" style={{height: wrapperHeight}}>
         <LeftContent/>
         <Main/>
       </div>
