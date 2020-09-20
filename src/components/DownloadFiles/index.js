@@ -1,14 +1,26 @@
-import React, {Fragment} from 'react'
+import React, {Fragment, useState, useEffect} from 'react'
 import Icon from '../../Icons'
 import './download-files.css'
 import { convertBytes } from '../../utils'
 import useModal from '../../Modal'
 import { UploadTerms } from '../Terms'
 
-export default function DownloadFiles({ downloadLinks, fileNames, totalFiles, shareID, totalSize }) {
+export default function DownloadFiles({ downloadLinks,expiryCode, fileNames, totalFiles, shareID, totalSize }) {
 
-    const handleDownload = (fileLink) => window.open(fileLink)
+    const handleDownload = (index) => {
+        downloadStatus[index] = true
+        updateDownloadStatus([...downloadStatus])
+        window.open(downloadLinks[index])
+    }
+
     const { showModal, ModalProvider } = useModal()
+    const [downloadStatus, updateDownloadStatus] = useState(Array(totalFiles).fill().map(_ => false))
+
+    useEffect(() => {
+        if(downloadStatus.filter(i => !!i).length === totalFiles){
+            fetch(`https://sfo-scheduler.herokuapp.com/kill/:${shareID}`).catch(console.error)
+        }
+    },[downloadStatus, shareID, totalFiles])
 
     return (
         <Fragment>
@@ -22,6 +34,13 @@ export default function DownloadFiles({ downloadLinks, fileNames, totalFiles, sh
                         {totalFiles} Files
                 </div>
                 </div>
+                {
+                    expiryCode === "onceDownload" && (
+                        <div className="delete-warn">
+                            Files will be deleted after all download
+                        </div>
+                    )
+                }
                 <div className="file-list">
                     {
                         fileNames.map((name, index) => (
@@ -35,7 +54,7 @@ export default function DownloadFiles({ downloadLinks, fileNames, totalFiles, sh
                                         }
                                     </div>
                                 </div>
-                                <Icon.download color={'var(--primary)'} onClick={_ => handleDownload(downloadLinks[index])} className="delete-icon" />
+                                <Icon.download color={'var(--primary)'} onClick={_ => handleDownload(index)} className="delete-icon" />
                             </div>
                         ))
                     }

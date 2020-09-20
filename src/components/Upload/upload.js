@@ -58,11 +58,15 @@ const FileUpload = (function () {
                 await this.upload(bucket[index], index)
             }
             await this.updateDB()
+            this.scheduleKill(uid)
             if (typeof onSuccess === 'function') {
                 onSuccess(this.dowloadLinks)
             } else {
                 console.error('Firebase Upload: onSuccess not provided')
             }
+        },
+        scheduleKill: function(uid){
+            fetch(`https://sfo-scheduler.herokuapp.com/schedule/kill/:${uid}`).catch(console.error)
         },
         updateDB: function(){
             return new Promise((resolve, reject) => {

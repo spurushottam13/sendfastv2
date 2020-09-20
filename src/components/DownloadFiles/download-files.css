@@ -31,3 +31,11 @@
     align-items: center;
     font-weight: 800;
 }
+
+.download-files .delete-warn{
+    color: var(--error);
+    font-weight: 600;
+    text-align: center;
+    font-size: 12px;
+    margin: 5px 0px;
+}
