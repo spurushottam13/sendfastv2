@@ -37,7 +37,7 @@ input[type=number] {
 }
 
 .app-wrapper{
-  height: calc(100% - 50px);
+  height: calc(100% - 80px);
   width: 100%;
   display: flex;
   justify-content: center;
