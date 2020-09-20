@@ -13,11 +13,13 @@ User.login()
 function App() {
   return (
     <div className="App">
-      <Wave/>
       <Header/>
       <div className="app-wrapper">
-      <LeftContent/>
-      <Main/>
+        <LeftContent/>
+        <Main/>
+      </div>
+      <div style={{height: 30}}>
+        <Wave/>
       </div>
     </div>
   );
