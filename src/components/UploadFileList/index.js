@@ -35,7 +35,7 @@ export default function UploadFileList({ fileBucket, isLimitExceed, startUploadi
                     <div>Delete after</div>
                     <select onChange={({ target: { selectedOptions } }) => setExpiryCode(selectedOptions[0].value)}>
                         <option value="after24" defaultValue={true}>24 hour</option>
-                        <option value="onceDownload">download</option>
+                        {/* <option value="onceDownload">download</option> */}
                         <option value="1Week">1 week</option>
                     </select>
                 </div>
