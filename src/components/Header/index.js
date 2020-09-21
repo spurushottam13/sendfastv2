@@ -4,7 +4,7 @@ export default function Header(){
     return(
         <div className="header-section">
             <div className="logo-title">
-            <span><span role="img" aria-label="flash">⚡</span>SendFileOnline.com</span>
+            <span><img className="logo-img" src="icons/icon-72x72.png" alt="logo"/> SendFileOnline.com</span>
             </div>
             <div className="about">
                 About

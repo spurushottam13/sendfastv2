@@ -21,3 +21,9 @@
 .header-section .about{
     cursor: pointer;
 }
+
+.logo-img{
+    height: 28px;
+    vertical-align: middle;
+    border-radius: 50%;
+}
