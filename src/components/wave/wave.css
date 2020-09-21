@@ -28,19 +28,19 @@
   }
   
   #waveHorizontal1 {
-    background-image: url(http://www.greenmarble.jp/wave1.svg);
+    background-image: url('/wave1.svg');
     animation-delay: -2s;
     animation-duration: 12s;
   }
   
   #waveHorizontal2 {
-    background-image: url(http://www.greenmarble.jp/wave2.svg);
+    background-image: url('/wave2.svg');
     animation-delay: -2s;
     animation-duration: 5s;
   }
   
   #waveHorizontal3 {
-    background-image: url(http://www.greenmarble.jp/wave3.svg);
+    background-image: url('/wave3.svg');
     animation-delay: -1s;
     animation-duration: 3s;
   }
