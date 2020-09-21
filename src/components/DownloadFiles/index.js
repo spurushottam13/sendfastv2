@@ -20,7 +20,7 @@ export default function DownloadFiles({ downloadLinks,expiryCode, fileNames, tot
         if(downloadStatus.filter(i => !!i).length === totalFiles && expiryCode === 'onceDownload'){
             fetch(`https://sfo-scheduler.herokuapp.com/kill/:${shareID}`).catch(console.error)
         }
-    },[downloadStatus, shareID, totalFiles])
+    },[downloadStatus, shareID, expiryCode, totalFiles])
 
     return (
         <Fragment>
