@@ -32,7 +32,9 @@ const DefaultStyle = {
         transform: "translate(-50%, -50%)",
         top: "50vh",
         left: "50vw",
-        boxShadow: "0 20px 30px rgba(0, 0, 0, 0.2)"
+        boxShadow: "0 20px 30px rgba(0, 0, 0, 0.2)",
+        maxHeight: '80%',
+        overflow: 'auto'
     }
 }
 
