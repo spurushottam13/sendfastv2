@@ -1,6 +1,8 @@
 // This optional code is used to register a service worker.
 // register() is not called by default.
 
+import { EventEmitter } from "./EventEmitter";
+
 // This lets the app load faster on subsequent visits in production, and gives
 // it offline capabilities. However, it also means that developers (and users)
 // will only see deployed updates on subsequent visits to a page, after all the
@@ -62,20 +64,24 @@ window.addEventListener('beforeinstallprompt', (e) => {
   // Stash the event so it can be triggered later.
   deferredPrompt = e;
   // Update UI notify the user they can install the PWA
-  showInstallPromotion();
+  //showInstallPromotion();
+  EventEmitter.emit('appInstall', deferredPrompt)
 });
 
-function showInstallPromotion(){
-  deferredPrompt.prompt();
-  // Wait for the user to respond to the prompt
-  deferredPrompt.userChoice.then((choiceResult) => {
-    if (choiceResult.outcome === 'accepted') {
-      console.log('User accepted the install prompt');
-    } else {
-      console.log('User dismissed the install prompt');
-    }
-  });
-}
+// function showInstallPromotion(){
+//   EventEmitter.emit('appInstall')
+//   deferredPrompt.prompt();
+  
+//   // Wait for the user to respond to the prompt
+//   // deferredPrompt.userChoice.then((choiceResult) => {
+//   //   if (choiceResult.outcome === 'accepted') {
+//   //     console.log('User accepted the install prompt');
+//   //   } else {
+//   //     console.log('User dismissed the install prompt');
+//   //   }
+//   // });
+
+// }
 
 
 function registerValidSW(swUrl, config) {
