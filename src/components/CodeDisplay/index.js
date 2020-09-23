@@ -8,7 +8,7 @@ export default function CodeDisplay({ uid = 235874 }) {
     const linkRef = useRef()
 
     useEffect(() => {
-        EventEmitter.add('shouldDisplay', true)
+        EventEmitter.emit('showAppIntall')
     },[])
 
     return (

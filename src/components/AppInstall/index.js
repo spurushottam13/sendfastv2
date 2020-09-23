@@ -1,8 +1,11 @@
 import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
 import { EventEmitter } from "../../EventEmitter";
 import "./app-install.css";
 
 export function AppInstall() {
+  const [shouldDisplay, setShouldDisplay] = useState(false)
   const initiate = () => {
     console.log("Initiate");
     const appInstallEvent = EventEmitter.get('installEvent')
@@ -16,8 +19,16 @@ export function AppInstall() {
       }
     });
   };
-  console.log(EventEmitter.get('installEvent'), EventEmitter.get('shouldDisplay'))
-  return EventEmitter.get('installEvent') && EventEmitter.get('shouldDisplay') ? (
+
+  useEffect(() => {
+    EventEmitter.on('showAppIntall', () => {
+      if(EventEmitter.get('installEvent')){
+        setShouldDisplay(true)
+      }
+    })
+  },[])
+
+  return shouldDisplay ? (
     <div className="appInstall wrapper">
       <div>
         Add this app to your HomeScreen for quick access and share files more
