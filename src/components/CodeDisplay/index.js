@@ -1,10 +1,15 @@
-import React, { Fragment, useRef } from 'react'
+import React, { Fragment, useRef, useEffect } from 'react'
 import './code-display.css'
 import { copyToClipboard } from '../../utils'
+import { EventEmitter } from '../../EventEmitter'
 
 export default function CodeDisplay({ uid = 235874 }) {
     const codeRef = useRef()
     const linkRef = useRef()
+
+    useEffect(() => {
+        EventEmitter.add('shouldDisplay', true)
+    },[])
 
     return (
         <Fragment>

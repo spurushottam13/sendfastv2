@@ -56,18 +56,12 @@ export function register(config) {
   }
 }
 
-let deferredPrompt;
-
-window.addEventListener('beforeinstallprompt', (e) => {
-  
+window.addEventListener('beforeinstallprompt', (event) => {
   console.log("BeforeInstallPrompt")
   // Prevent the mini-infobar from appearing on mobile
-  e.preventDefault();
+  event.preventDefault();
   // Stash the event so it can be triggered later.
-  deferredPrompt = e;
-  // Update UI notify the user they can install the PWA
-  //showInstallPromotion();
-  EventEmitter.emit('appInstall', deferredPrompt)
+  EventEmitter.add('installEvent',event)
 });
 
 // function showInstallPromotion(){

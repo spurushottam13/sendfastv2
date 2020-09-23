@@ -1,44 +1,29 @@
-import React, { Fragment } from "react";
+import React from "react";
+import { EventEmitter } from "../../EventEmitter";
 import "./app-install.css";
 
-export function AppInstall({ closeModal, appInstallEvent }) {
+export function AppInstall() {
   const initiate = () => {
-    console.log("Initiate")
-    closeModal()
+    console.log("Initiate");
+    const appInstallEvent = EventEmitter.get('installEvent')
     appInstallEvent.prompt();
     appInstallEvent.userChoice.then((choiceResult) => {
       if (choiceResult.outcome === "accepted") {
+        localStorage.setItem('appInstall:status', true)
         console.log("User accepted the install prompt");
       } else {
         console.log("User dismissed the install prompt");
       }
     });
   };
-
-  return (
-    <Fragment>
-      <div className="appInstall close" onClick={closeModal}>&#x292B;</div>
-      <div className="appInstall wrapper">
-        <img
-          src="/icons/icon-72x72.png"
-          className="appInstall logo"
-          alt="logo"
-        />
-        <div className="appInstall center">
-          <div>
-            <span className="appInstall heading">Introducing Lite version</span>
-            <br />
-            <br />
-            <span>
-              Add this app to your HomeScreen for quick access and share files
-              more easily.
-            </span>
-          </div>
-          <div className="appInstall button" onClick={initiate}>
-            Add To HomeScreen
-          </div>
-        </div>
+  console.log(EventEmitter.get('installEvent'), EventEmitter.get('shouldDisplay'))
+  return EventEmitter.get('installEvent') && EventEmitter.get('shouldDisplay') ? (
+    <div className="appInstall wrapper">
+      <div>
+        Add this app to your HomeScreen for quick access and share files more
+        easily.
       </div>
-    </Fragment>
-  );
+      <div className="appInstall button" onClick={initiate}>Add To HomeScreen</div>
+    </div>
+  ) : null
 }
