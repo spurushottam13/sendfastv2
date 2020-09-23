@@ -4,7 +4,7 @@ import './download-files.css'
 import { convertBytes } from '../../utils'
 import useModal from '../../Modal'
 import { UploadTerms } from '../Terms'
-import { EventEmitter } from '../../EventEmitter'
+// import { EventEmitter } from '../../EventEmitter'
 
 export default function DownloadFiles({ downloadLinks,expiryCode, fileNames, totalFiles, shareID, totalSize }) {
 
