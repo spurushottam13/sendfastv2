@@ -16,3 +16,5 @@ export const EventEmitter = (function(){
       }
    }
 })()
+
+window._E = EventEmitter
