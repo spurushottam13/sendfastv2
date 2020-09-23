@@ -57,27 +57,9 @@ export function register(config) {
 }
 
 window.addEventListener('beforeinstallprompt', (event) => {
-  console.log("BeforeInstallPrompt")
-  // Prevent the mini-infobar from appearing on mobile
   event.preventDefault();
-  // Stash the event so it can be triggered later.
   EventEmitter.add('installEvent',event)
 });
-
-// function showInstallPromotion(){
-//   EventEmitter.emit('appInstall')
-//   deferredPrompt.prompt();
-  
-//   // Wait for the user to respond to the prompt
-//   // deferredPrompt.userChoice.then((choiceResult) => {
-//   //   if (choiceResult.outcome === 'accepted') {
-//   //     console.log('User accepted the install prompt');
-//   //   } else {
-//   //     console.log('User dismissed the install prompt');
-//   //   }
-//   // });
-
-// }
 
 
 function registerValidSW(swUrl, config) {
