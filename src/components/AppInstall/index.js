@@ -3,6 +3,7 @@ import "./app-install.css";
 
 export function AppInstall({ closeModal, appInstallEvent }) {
   const initiate = () => {
+    console.log("Initiate")
     closeModal()
     appInstallEvent.prompt();
     appInstallEvent.userChoice.then((choiceResult) => {

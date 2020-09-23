@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import LeftContent from './components/LeftContent';
 import Main from './components/Main';
@@ -18,13 +18,19 @@ function App() {
   const { showModal, ModalProvider } = useModal()
 
   const showAppInstallBanner = (appInstallEvent) => {
+    
+    console.log("ShowAPPInstallBanner")
+    console.log(EventEmitter)
     showModal({ 
       component: ({closeModal}) => <AppInstall closeModal={closeModal} appInstallEvent={appInstallEvent} />, 
       autoDisappear: false 
     })
   }
 
-  EventEmitter.on('appInstall', showAppInstallBanner)
+  useEffect(() => {
+    EventEmitter.on('appInstall', showAppInstallBanner)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[])
 
   return (
     <React.Fragment>
