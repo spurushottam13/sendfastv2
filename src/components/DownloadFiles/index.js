@@ -23,9 +23,9 @@ export default function DownloadFiles({ downloadLinks,expiryCode, fileNames, tot
         }
     },[downloadStatus, shareID, expiryCode, totalFiles])
 
-    useEffect(() => {
-        EventEmitter.emit('showAppIntall')
-    },[])
+    // useEffect(() => {
+    //     EventEmitter.emit('showAppIntall')
+    // },[])
 
     return (
         <Fragment>
