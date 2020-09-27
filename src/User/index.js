@@ -26,7 +26,8 @@ export const User = (function () {
     info: {
       href: window.location.href,
       fpid: getFingerprintId(),
-      ts: new Date().getTime()
+      ts: new Date().getTime(),
+      pwaStatus: window.localStorage.getItem("appInstall:status") || "false" 
     },
     login: function () {
       firebase.auth().signInAnonymously().catch(console.error);

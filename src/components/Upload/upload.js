@@ -2,7 +2,7 @@ import firebase from 'firebase/app';
 import 'firebase/storage';
 import 'firebase/database';
 import 'firebase/auth'
-import { generateExpiryTime, sleep } from '../../utils';
+import { generateExpiryTime, getFingerprintId, sleep } from '../../utils';
 import { User } from '../../User';
 
 const FileUpload = (function () {  
@@ -77,7 +77,8 @@ const FileUpload = (function () {
                     totalSize: this.totalFileSize,
                     expiryCode: this.expiryCode,
                     uploadTime: new Date().getTime(),
-                    expiryTime: generateExpiryTime(this.expiryCode)
+                    expiryTime: generateExpiryTime(this.expiryCode),
+                    fpid: getFingerprintId()
                 })
                 .then(resolve)
                 .catch(_ => console.error("Can not update DB", _))
