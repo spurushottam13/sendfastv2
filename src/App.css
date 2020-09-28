@@ -104,3 +104,7 @@ body{
   max-width: calc(100% - 50px);
   overflow: unset;
 }
+
+.zero-margin{
+  margin: 0;
+}

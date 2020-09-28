@@ -64,9 +64,9 @@ export default function Upload({ setIsDownload }) {
 
    return (
       <Fragment>
-         <div className="title">
-            Share files with 6 digit code
-         </div>
+         <h1 className="title zero-margin">
+            Free online files sharing
+         </h1>
          <div className="share-btn" onClick={_ => fileInput.current.click()}>
             <input
                className="hidden"

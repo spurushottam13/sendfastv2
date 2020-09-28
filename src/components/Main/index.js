@@ -15,7 +15,7 @@ export default function Main() {
                 shouldRenderChild && (
                     <Fragment>
                         <div className="t1">
-                            <div className="t2">Now, share your files easily with just 6 digit code</div>
+                            <h1 className="t2 zero-margin">Now, share files online easily with just 6 digit code</h1>
                             {/* <div className="t3">No SignUp   No Email   No Phone Number</div> */}
                         </div>
                         <Download setIsDownload={setIsDownload} setFileBucket={setFileBucket} isMounted={isDownload} />
