@@ -66,7 +66,10 @@ const FileUpload = (function () {
             }
         },
         scheduleKill: function(uid){
-            fetch(`https://sfo-scheduler.herokuapp.com/schedule/kill/:${uid}`).catch(console.error)
+            fetch(`https://sfo-scheduler.herokuapp.com/schedule/kill/:${uid}`)
+            .then(r => r.text())
+            .then(console.log)
+            .catch(console.error)
         },
         updateDB: function(){
             return new Promise((resolve, reject) => {
