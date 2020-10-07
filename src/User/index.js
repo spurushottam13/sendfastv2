@@ -3,14 +3,27 @@ import "firebase/database";
 import "firebase/auth";
 import { getFingerprintId, getIPLocation } from "../utils";
 
+// firebase.initializeApp({
+//   apiKey: "AIzaSyDZcpLH-ucE-YIM99Vz2r0ipyyixc1WEsY",
+//   authDomain: "send-fast-v2.firebaseapp.com",
+//   databaseURL: "https://send-fast-v2.firebaseio.com",
+//   projectId: "send-fast-v2",
+//   storageBucket: "send-fast-v2.appspot.com",
+//   messagingSenderId: "100946162990",
+//   appId: "1:100946162990:web:07c78dc64b10f73a95f6bf",
+// });
+
+
+
 firebase.initializeApp({
-  apiKey: "AIzaSyDZcpLH-ucE-YIM99Vz2r0ipyyixc1WEsY",
-  authDomain: "send-fast-v2.firebaseapp.com",
-  databaseURL: "https://send-fast-v2.firebaseio.com",
-  projectId: "send-fast-v2",
-  storageBucket: "send-fast-v2.appspot.com",
-  messagingSenderId: "100946162990",
-  appId: "1:100946162990:web:07c78dc64b10f73a95f6bf",
+  apiKey: "AIzaSyAhCPBvIrxjaO92zc3zDlBM_serfGZrfyI",
+    authDomain: "tempsendfast.firebaseapp.com",
+    databaseURL: "https://tempsendfast.firebaseio.com",
+    projectId: "tempsendfast",
+    storageBucket: "tempsendfast.appspot.com",
+    messagingSenderId: "657824223904",
+    appId: "1:657824223904:web:a22e731aa9aebe9486afc5",
+    measurementId: "G-EPPC6NGYCM"
 });
 
 export const User = (function () {
