@@ -5,6 +5,7 @@ import Upload from '../Upload'
 import useDelayUnmount from '../../Hooks/useDelayUnmount'
 import DownloadFiles from '../DownloadFiles'
 import { AppInstall } from '../AppInstall'
+import BuyMeCoffee from '../BuyMeCoffee'
 export default function Main() {
     const [isDownload, setIsDownload] = useState(true)
     const [fileBucket, setFileBucket] = useState()
@@ -31,6 +32,7 @@ export default function Main() {
                 )
             }
             </div>
+            <BuyMeCoffee />
             <AppInstall/>
             {/* <CircularIndicator/> */}
         </div>
