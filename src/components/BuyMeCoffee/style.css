@@ -1,0 +1,24 @@
+.buy-me-coffee {
+  padding: 0px;
+  min-height: auto;
+  height: 50px;
+  display: flex;
+  place-content: center;
+  background: #5f7fff;
+  position: relative;
+}
+
+.buy-me-coffee img {
+  position: absolute;
+  left: 67px;
+}
+
+.buy-me-coffee .hider {
+  display: block;
+  position: absolute;
+  height: 47px;
+  width: 56px;
+  right: 0px;
+  background: #5f7fff;
+  border-radius: 4px;
+}
