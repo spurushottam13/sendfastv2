@@ -15,7 +15,7 @@ function App() {
     <React.Fragment>
       <div className="App">
         <Header />
-        <a href="http://jsongist.io/" target="_blank" rel="noopener noreferrer">
+        <a href="http://jsongist.io/">
           <div className="news-container">
             <div className="news-title">
               &nbsp;
