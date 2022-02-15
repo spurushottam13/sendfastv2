@@ -5,7 +5,6 @@ import Main from "./components/Main";
 import Header from "./components/Header";
 import Wave from "./components/wave";
 import { User } from "./User";
-import Icon from "./Icons";
 
 User.login();
 
