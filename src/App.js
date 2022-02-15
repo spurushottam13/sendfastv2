@@ -10,12 +10,11 @@ import Icon from "./Icons";
 User.login();
 
 function App() {
-  const wrapperHeight = window.innerHeight - 150;
   return (
     <React.Fragment>
       <div className="App">
         <Header />
-        <a href="http://jsongist.io/">
+        {/* <a href="http://jsongist.io/">
           <div className="news-container">
             <div className="news-title">
               &nbsp;
@@ -34,8 +33,8 @@ function App() {
               <Icon.open />
             </div>
           </div>
-        </a>
-        <div className="app-wrapper" style={{ height: wrapperHeight }}>
+        </a> */}
+        <div className="app-wrapper">
           <LeftContent />
           <Main />
         </div>
