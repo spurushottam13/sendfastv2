@@ -19,14 +19,7 @@ export default function LeftContent() {
         <div className="left-ad-container">
           <ins
             className="adsbygoogle"
-            // add this style min-width:400px;max-width:970px;width:100%;height:90px"
-            style={{
-              display: "block",
-              minWidth: 400,
-              maxWidth: 970,
-              width: "100%",
-              height: 90,
-            }}
+            style={{ display: "block" }}
             data-ad-client="ca-pub-8133095106878922"
             data-ad-slot="6691780714"
             data-ad-format="auto"
