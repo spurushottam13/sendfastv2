@@ -16,15 +16,16 @@ export default function LeftContent() {
         <div>
           <div>No SignUp &nbsp; No Email &nbsp; No Phone Number</div>
         </div>
-        <div className="left-ad-container">
-          <ins
+        <div className="left-ad-container" style={{ minHeight: 300 }}>
+          {/* <ins
             className="adsbygoogle"
             style={{ display: "block" }}
             data-ad-client="ca-pub-8133095106878922"
             data-ad-slot="6691780714"
             data-ad-format="auto"
             data-full-width-responsive="true"
-          ></ins>
+          ></ins> */}
+          <div id="amzn-assoc-ad-87c71213-c2e1-4fa0-af86-e51fcdff4851"></div>
         </div>
       </div>
     </div>
