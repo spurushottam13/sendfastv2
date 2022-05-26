@@ -84,6 +84,14 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    <script>
+      fetch(
+        `https://minion-pixel.netlify.app/api/minions?aid=sfo.com&p=/&r=${window.document.referrer}`
+      )
+        .then((r) => r.json())
+        .then(console.log)
+        .catch(console.error);
+    </script>
     <div id="root"></div>
 
     <!--
