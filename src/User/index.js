@@ -7,7 +7,7 @@ import { getFingerprintId, getIPLocation } from "../utils";
 firebase.initializeApp({
   apiKey: "AIzaSyCElDMFlty6rxcf3VpbmlcnpJtuWlXXRO4",
   authDomain: "sfo-3-8-22.firebaseapp.com",
-  databaseURL: "https://sfo-3-8-22.firebaseio.com",
+  databaseURL: "https://sfo-3-8-22-default-rtdb.firebaseio.com",
   projectId: "sfo-3-8-22",
   storageBucket: "sfo-3-8-22.appspot.com",
   messagingSenderId: "1070869152003",
