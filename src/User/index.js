@@ -3,15 +3,17 @@ import "firebase/database";
 import "firebase/auth";
 import { getFingerprintId, getIPLocation } from "../utils";
 
-// SF0 -3-8-22
+// SF0 -27-03-23
+console.log("// SF0 -27-03-23");
 firebase.initializeApp({
-  apiKey: "AIzaSyCElDMFlty6rxcf3VpbmlcnpJtuWlXXRO4",
-  authDomain: "sfo-3-8-22.firebaseapp.com",
-  databaseURL: "https://sfo-3-8-22-default-rtdb.firebaseio.com",
-  projectId: "sfo-3-8-22",
-  storageBucket: "sfo-3-8-22.appspot.com",
-  messagingSenderId: "1070869152003",
-  appId: "1:1070869152003:web:035fd9c39346a7a04fe936",
+  apiKey: "AIzaSyBRD5lBie9TdjPNPh_H6tl1MAlfK7yEs5I",
+  authDomain: "sfo-27-02-23.firebaseapp.com",
+  databaseURL:
+    "https://sfo-27-02-23-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "sfo-27-02-23",
+  storageBucket: "sfo-27-02-23.appspot.com",
+  messagingSenderId: "988040714724",
+  appId: "1:988040714724:web:2b4eaf34dc515a403e0ff1",
 });
 
 export const User = (function () {
