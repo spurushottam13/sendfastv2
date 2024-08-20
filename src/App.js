@@ -5,6 +5,7 @@ import Main from "./components/Main";
 import Header from "./components/Header";
 import Wave from "./components/wave";
 import { User } from "./User";
+import Icon from "./Icons";
 
 User.login();
 
@@ -13,26 +14,29 @@ function App() {
     <React.Fragment>
       <div className="App">
         <Header />
-        {/* <a href="http://jsongist.io/">
+        <a
+          href="https://www.producthunt.com/products/errrorpulse"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <div className="news-container">
             <div className="news-title">
               &nbsp;
               <span role="img" aria-label="hello">
                 ✨
               </span>
-              JSONGist.io &nbsp;
+              ErrorPulse.io &nbsp;
             </div>
             <div className="news-message">
-              &nbsp; &nbsp;JSON storage service hosted on your Github Gist
-              &nbsp;
+              &nbsp; &nbsp;FrontEnd error tracking, at a fraction of cost &nbsp;
               <Icon.open />
             </div>
             <div className="small-message">
-              &nbsp; &nbsp; Free JSON storage &nbsp;
+              &nbsp; &nbsp; FrontEnd Error tracking &nbsp;
               <Icon.open />
             </div>
           </div>
-        </a> */}
+        </a>
         <div className="app-wrapper">
           <LeftContent />
           <Main />
