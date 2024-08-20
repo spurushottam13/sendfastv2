@@ -6,7 +6,7 @@ import * as serviceWorker from "./serviceWorker";
 import * as Sentry from "@sentry/react";
 
 Sentry.init({
-  dsn: "https://9218642656fc943fbb37801f16b9ec53@o4507769921536000.ingest.de.npm sentry.io/4507769923436624",
+  dsn: "https://9218642656fc943fbb37801f16b9ec53@o4507769921536000.ingest.de.sentry.io/4507769923436624",
   integrations: [
     Sentry.browserTracingIntegration(),
     Sentry.replayIntegration(),
