@@ -15,7 +15,7 @@ function App() {
       <div className="App">
         <Header />
         <a
-          href="https://www.producthunt.com/products/errrorpulse"
+          href="https://www.errorpulse.io"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -28,11 +28,11 @@ function App() {
               ErrorPulse.io &nbsp;
             </div>
             <div className="news-message">
-              &nbsp; &nbsp;FrontEnd error tracking, at a fraction of cost &nbsp;
+              &nbsp; &nbsp;Privacy friendly error tracking. &nbsp;
               <Icon.open />
             </div>
             <div className="small-message">
-              &nbsp; &nbsp; FrontEnd Error tracking &nbsp;
+              &nbsp; &nbsp; Privacy friendly error tracking &nbsp;
               <Icon.open />
             </div>
           </div>
