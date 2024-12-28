@@ -7,6 +7,7 @@
 }
 
 .content-section .share-btn{
+    user-select: none;
     padding: 8px 10px;
     background: var(--primary);
     min-width: 120px;
@@ -52,6 +53,7 @@
 }
 
 .content-section .upload-btn{
+    user-select: none;
     padding: 5px 10px;
     background: var(--primary);
     width: 100%;

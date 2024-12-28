@@ -15,4 +15,5 @@
   font-weight: 600;
   cursor: pointer;
   text-align: center;
+  user-select: none;
 }

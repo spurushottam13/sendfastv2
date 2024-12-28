@@ -1,0 +1,65 @@
+.BlogList {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 800px;
+    text-align: center;
+}
+
+.BlogList article {
+    text-align: left;
+}
+
+.BlogList > div {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+
+.BlogList nav {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.BlogList ol {
+    list-style-type: none;
+    padding: 0;
+}
+
+.BlogList li {
+    margin: 15px 0;
+}
+
+.BlogList a {
+    text-decoration: none;
+    color: #007bff;
+    font-size: 1.4rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.BlogList a:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+
+@media (max-width: 600px) {
+    .BlogList {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    .BlogList > div {
+        font-size: 1.6rem;
+    }
+
+    .BlogList a {
+        font-size: 1.2rem;
+    }
+}

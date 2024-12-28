@@ -1,51 +1,29 @@
 import React from "react";
 import "./App.css";
-import LeftContent from "./components/LeftContent";
-import Main from "./components/Main";
-import Header from "./components/Header";
-import Wave from "./components/wave";
 import { User } from "./User";
-import Icon from "./Icons";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Home from "./pages/home";
+import { BlogList } from "./pages/blogList";
+import Blog1 from "./pages/blogList/blog-1";
+import Blog2 from "./pages/blogList/blog-2";
+import Blog3 from "./pages/blogList/blog-3";
+import Blog4 from "./pages/blogList/blog-4";
 
 User.login();
 
 function App() {
   return (
-    <React.Fragment>
-      <div className="App">
-        <Header />
-        <a
-          href="https://www.errorpulse.io"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <div className="news-container">
-            <div className="news-title">
-              &nbsp;
-              <span role="img" aria-label="hello">
-                ✨
-              </span>
-              ErrorPulse.io &nbsp;
-            </div>
-            <div className="news-message">
-              &nbsp; &nbsp;Privacy friendly error tracking. &nbsp;
-              <Icon.open />
-            </div>
-            <div className="small-message">
-              &nbsp; &nbsp; Privacy friendly error tracking &nbsp;
-              <Icon.open />
-            </div>
-          </div>
-        </a>
-        <div className="app-wrapper">
-          <LeftContent />
-          <Main />
-        </div>
-        <div style={{ height: 30 }}>
-          <Wave />
-        </div>
-      </div>
-    </React.Fragment>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/blogs" component={BlogList} />
+        <Route path="/blogs/content1" component={Blog1} />
+        <Route path="/blogs/content2" component={Blog2} />
+        <Route path="/blogs/content3" component={Blog3} />
+        <Route path="/blogs/content4" component={Blog4} />
+        <Route path="*" render={Home} />
+      </Switch>
+    </Router>
   );
 }
 
