@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <div className="App">
       <Header />
-      <a
+      {/* <a
         href="https://www.errorpulse.io"
         target="_blank"
         rel="noopener noreferrer"
@@ -31,7 +31,7 @@ export default function Home() {
             <Icon.open />
           </div>
         </div>
-      </a>
+      </a> */}
       <div className="app-wrapper">
         <LeftContent />
         <Main />
