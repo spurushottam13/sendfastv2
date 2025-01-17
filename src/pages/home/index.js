@@ -3,7 +3,6 @@ import LeftContent from "../../components/LeftContent";
 import Main from "../../components/Main";
 import Header from "../../components/Header";
 import Wave from "../../components/wave";
-import Icon from "../../Icons";
 
 export default function Home() {
   return (
