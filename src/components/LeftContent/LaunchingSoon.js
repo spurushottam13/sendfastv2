@@ -67,10 +67,6 @@ export default function LaunchingSoon() {
           <span>Analytics and email notifications on downloads</span>
         </li>
         <li className="feature-item">
-          <LayoutDashboard className="feature-icon" size={20} />
-          <span>Dashboard to manage all your shareable files</span>
-        </li>
-        <li className="feature-item">
           <Share2 className="feature-icon" size={20} />
           <span>Unlimited share</span>
         </li>
