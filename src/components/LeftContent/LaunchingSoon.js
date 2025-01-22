@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import {
-  FileTerminal as FileAnalytics,
   Clock,
   Share2,
   Mail,
