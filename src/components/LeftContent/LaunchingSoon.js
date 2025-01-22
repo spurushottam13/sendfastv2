@@ -60,8 +60,8 @@ export default function LaunchingSoon() {
           <span>Set passwords to secure your downloads</span>
         </li>
         <li className="feature-item">
-          <FileAnalytics className="feature-icon" size={20} />
-          <span>Analytics and dashboard for file sharing</span>
+          <LayoutDashboard className="feature-icon" size={20} />
+          <span>Dashboard to manage all your shareable files</span>
         </li>
         <li className="feature-item">
           <Bell className="feature-icon" size={20} />
