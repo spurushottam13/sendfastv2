@@ -179,4 +179,8 @@ a {
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
   }
+
+  .app-wrapper {
+    flex-direction: column-reverse;
+  }
 }

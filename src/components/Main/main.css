@@ -6,6 +6,7 @@
   justify-content: space-evenly;
   padding: 1rem;
   position: relative;
+  gap: 1rem;
 }
 
 .content-section {
