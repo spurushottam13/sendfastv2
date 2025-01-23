@@ -40,6 +40,6 @@
 
 @media only screen and (max-width: 500px){
     .left-content-section {
-        width: 280px;
+        width: auto;
     }
 }
