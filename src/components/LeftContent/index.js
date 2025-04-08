@@ -1,6 +1,5 @@
 import React from "react";
 import "./left-content.css";
-import LaunchingSoon from "./LaunchingSoon";
 
 const Legacy = () => (
   <div>
