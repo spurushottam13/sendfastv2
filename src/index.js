@@ -36,4 +36,5 @@ ReactDOM.render(
 //   serviceWorker.register()
 // }
 
-serviceWorker.register();
+console.log("DONE");
+serviceWorker.unregister();
